@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Advisor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Financial Advisor</h1>
+        <form method="POST" action="/recommend">
+            <input type="number" name="income" placeholder="Enter your income" required>
+            <input type="number" name="expenses" placeholder="Enter your expenses" required>
+            <button type="submit">Get Recommendation</button>
+        </form>
+        {% if recommendation %}
+        <div class="result">
+            <p><strong>Income:</strong> {{ income }}</p>
+            <p><strong>Expenses:</strong> {{ expenses }}</p>
+            <p><strong>Savings:</strong> {{ savings }}</p>
+            <p><strong>Recommendation:</strong> {{ recommendation }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
