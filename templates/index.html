@@ -55,20 +55,15 @@
     <div class="container">
         <h1>Financial Advisor</h1>
         <form method="POST" action="/recommend">
-            <input type="number" name="income" placeholder="Enter your income" value="{{ income or '' }}" required>
-            <input type="number" name="expenses" placeholder="Enter your expenses" value="{{ expenses or '' }}" required>
-            <input type="number" name="debt" placeholder="Enter your total debt (optional)" value="{{ debt or '' }}">
-            <input type="number" name="goal" placeholder="Enter your savings goal (optional)" value="{{ goal or '' }}">
+            <input type="number" name="income" placeholder="Enter your income" required>
+            <input type="number" name="expenses" placeholder="Enter your expenses" required>
             <button type="submit">Get Recommendation</button>
         </form>
         {% if recommendation %}
         <div class="result">
             <p><strong>Income:</strong> {{ income }}</p>
             <p><strong>Expenses:</strong> {{ expenses }}</p>
-            <p><strong>Debt:</strong> {{ debt }}</p>
-            <p><strong>Goal:</strong> {{ goal }}</p>
             <p><strong>Savings:</strong> {{ savings }}</p>
-            <p><strong>Savings Rate:</strong> {{ savings_rate|round(2) }}%</p>
             <p><strong>Recommendation:</strong> {{ recommendation }}</p>
         </div>
         {% endif %}
